@@ -1,19 +1,26 @@
 package com.mymess.mayak;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.google.android.material.navigation.NavigationView;
 import com.mymess.mayak.Adapters.MessageAdapter;
 import com.mymess.mayak.pojo.UserInfo;
 
@@ -24,10 +31,11 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String STATUS_NAME = "status.txt";
 
+    private DrawerLayout drawer;
     private RecyclerView messageRecyclerView;
     private MessageAdapter messageAdapter;
     private Toolbar toolbar;
@@ -37,12 +45,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        drawer = findViewById(R.id.home_drawer);
         toolbar = findViewById(R.id.toolStart);
         setSupportActionBar(toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView nav = findViewById(R.id.home_nav);
+        nav.setNavigationItemSelectedListener(this);
 
 
         initRecyclerView();
         loadMess();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     private void loadMess() {
@@ -129,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
             });
             alert.show();
         }
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -142,5 +166,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         //Load Data
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_drawer_home_settings:
+                Intent intent = new Intent(MainActivity.this,SettingsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.menu_drawer_home_about:
+                final AlertDialog.Builder alert= new AlertDialog.Builder(this);
+                alert.setTitle("О нас");
+                alert.setMessage("Команда разработки данного приложения:\nГруппа ИКБО-16-18 МИРЭА\nСеменихин А.О. (фронт)\nКасьяненко К.В (бэк)");
+                alert.setNeutralButton("Спасибо", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                alert.show();
+                break;
+        }
+        return true;
+    }
+
+    public void onProfileClick(View view){
+        Intent intent = new Intent(MainActivity.this,ProfileActivity.class);
+        startActivity(intent);
     }
 }

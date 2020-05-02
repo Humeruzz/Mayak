@@ -1,24 +1,31 @@
 package com.mymess.mayak.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Arrays;
+
 public class FullMessage {
-    Image image;
+    @SerializedName("messageInfo")
     Message message;
+    @SerializedName("text")
     Text text;
+    @SerializedName("images")
+    Image[] image;
 
     public FullMessage() {
     }
 
-    public FullMessage(Message message,Image image, Text text) {
+    public FullMessage(Message message,Image[] image, Text text) {
         this.image = image;
         this.message = message;
         this.text = text;
     }
 
-    public Image getImage() {
+    public Image[] getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(Image[] image) {
         this.image = image;
     }
 
@@ -45,16 +52,17 @@ public class FullMessage {
 
         FullMessage that = (FullMessage) o;
 
-        if (image != null ? !image.equals(that.image) : that.image != null) return false;
-        if (message != null ? !message.equals(that.message) : that.message != null) return false;
-        return text != null ? text.equals(that.text) : that.text == null;
+        if (!message.equals(that.message)) return false;
+        if (text != null ? !text.equals(that.text) : that.text != null) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(image, that.image);
     }
 
     @Override
     public int hashCode() {
-        int result = image != null ? image.hashCode() : 0;
-        result = 31 * result + (message != null ? message.hashCode() : 0);
+        int result = message.hashCode();
         result = 31 * result + (text != null ? text.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(image);
         return result;
     }
 }

@@ -2,8 +2,8 @@ package com.mymess.mayak.pojo;
 
 public class Text {
     private int textId;
-    String text;
     private int messageId;
+    String text;
 
     public Text() {
     }

@@ -1,8 +1,11 @@
 package com.mymess.mayak.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.sql.Timestamp;
 
 public class Message {
+    @SerializedName("message_id")
     private int messageId;
     private int from;
     private int to;

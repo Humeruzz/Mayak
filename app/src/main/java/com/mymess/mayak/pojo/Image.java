@@ -4,11 +4,10 @@ import java.util.Arrays;
 
 public class Image {
 
-    String type;
-    byte[] source;
+    private String type;
     private int messageId;
     private int imageId;
-
+    private transient byte[] source;
 
     public Image() {
     }

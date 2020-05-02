@@ -1,7 +1,7 @@
 package com.mymess.mayak.pojo;
 
 public class User {
-    private int userId;
+    private transient int userId;
     private String email;
     private String password;
 

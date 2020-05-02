@@ -7,6 +7,8 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="basicPerson">Владимир Путин</string>
+    <string name="navigation_drawer_open">Открыть панель управления</string>
+    <string name="navigation_drawer_close">Закрыть панель управления</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

@@ -99,7 +99,6 @@ public class ChatActivity extends AppCompatActivity implements IDataUse {
 
     public void ProfileOpen(View view) {
         Intent intent = new Intent(ChatActivity.this,ProfileActivity.class);
-        intent.putExtra("Image", image);
         startActivity(intent);
     }
 

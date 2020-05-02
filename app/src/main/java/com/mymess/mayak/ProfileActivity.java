@@ -14,15 +14,13 @@ import com.squareup.picasso.Picasso;
 public class ProfileActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    public String image;
+    public String image = "https://de.sott.net/image/s8/174380/full/putin_ba_rv3.jpg";
     private ImageView profileImage;
     private TextView profileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        image = intent.getStringExtra("Image");
         setContentView(R.layout.activity_profile);
 
         toolbar = findViewById(R.id.toolProfile);
