@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="black">#000000</color>
+    <color name="gray_dove_light">#747373</color>
+    <color name="gray_super_light">#ADADAD</color>
+    <color name="chat_mess">#9FBACA</color>
+    <color name="wight">#66FFFFFF</color>
+    <color name="menu_color">#6DA6C8</color>
+</resources>

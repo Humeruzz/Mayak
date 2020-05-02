@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include
+        android:id="@+id/update_toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/update_email"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <EditText
+        android:ems="10"
+        android:hint="email@gmail.com"
+        android:id="@+id/update_email_field"
+        android:inputType="textEmailAddress"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/update__pass"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="Пароль"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:ems="10"
+                android:hint="password"
+                android:id="@+id/update_pass_field"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/update_pass_doub"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="Подтвердите пароль"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:contentDescription="Должно присутсвовать как минимум 8 символов"
+                android:ems="10"
+                android:hint="password"
+                android:id="@+id/update_pass_doub_field"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <TextView
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:layout_width="100dp"
+            android:paddingEnd="8dp"
+            android:singleLine="false"
+            android:text="Пароль должен состоять как минимум из 8 символов"
+            android:textAlignment="inherit"
+            android:textColor="#B2000000"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/update_first"
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:text="Имя"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:ems="10"
+                android:id="@+id/update_first_field"
+                android:inputType="textPersonName"
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/update_last"
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:text="Фамилия"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:ems="10"
+                android:id="@+id/update_last_field"
+                android:inputType="textPersonName"
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/update_nick"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Никнейм"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <EditText
+        android:ems="10"
+        android:id="@+id/update_nick_field"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/update_phone"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Телефон"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <com.lamudi.phonefield.PhoneInputLayout
+        android:id="@+id/update_phone_field"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical" />
+
+    <TextView
+        android:id="@+id/update_birth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:text="День рождения"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <EditText
+        android:clickable="true"
+        android:editable="false"
+        android:ems="10"
+        android:id="@+id/update_birth_field"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/update_update_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Сохранить" />
+
+</LinearLayout>
