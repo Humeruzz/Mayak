@@ -1,5 +1,9 @@
 package com.mymess.mayak.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
+
+
 public class Text {
     private int textId;
     private int messageId;
@@ -9,6 +13,12 @@ public class Text {
     }
 
     public Text(String text) {
+        this.text = text;
+    }
+
+    public Text(int textId, int messageId, String text) {
+        this.textId = textId;
+        this.messageId = messageId;
         this.text = text;
     }
 

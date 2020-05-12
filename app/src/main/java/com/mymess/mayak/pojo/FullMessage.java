@@ -12,10 +12,9 @@ public class FullMessage {
     @SerializedName("images")
     Image[] image;
 
-    public FullMessage() {
-    }
+    public FullMessage(){}
 
-    public FullMessage(Message message,Image[] image, Text text) {
+    public FullMessage(Message message, Text text, Image[] image) {
         this.image = image;
         this.message = message;
         this.text = text;

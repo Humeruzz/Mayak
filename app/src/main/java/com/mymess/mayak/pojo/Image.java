@@ -10,12 +10,17 @@ public class Image {
     private transient byte[] source;
 
     public Image() {
+        this.type = null;
+        this.source = null;
+
     }
 
-    public Image(String type, byte[] source) {
+    public Image(String type, int messageId, int imageId) {
         this.type = type;
-        this.source = source;
+        this.messageId = messageId;
+        this.imageId = imageId;
     }
+
     public int getImageId() {
         return imageId;
     }

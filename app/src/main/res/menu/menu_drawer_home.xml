@@ -8,6 +8,10 @@
             android:id="@+id/menu_drawer_home_settings"
             android:icon="@drawable/settings_home_24dp"
             android:title="Настройки"/>
+        <item
+            android:id="@+id/menu_drawer_home_exit"
+            android:icon="@drawable/exit_home_24dp"
+            android:title="Выйти"/>
         <item android:title="Общее">
             <menu>
                 <item android:id="@+id/menu_drawer_home_about"

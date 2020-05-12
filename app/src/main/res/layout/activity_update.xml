@@ -19,12 +19,16 @@
         android:textSize="18sp" />
 
     <EditText
-        android:ems="10"
-        android:hint="email@gmail.com"
         android:id="@+id/update_email_field"
-        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:editable="false"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="email@gmail.com"
+        android:inputType="textEmailAddress" />
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -192,7 +196,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
         android:text="Сохранить" />
 
 </LinearLayout>

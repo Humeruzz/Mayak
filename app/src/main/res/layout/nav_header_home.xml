@@ -9,13 +9,14 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/nav_header_home_profileImage"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:clickable="true"
         android:onClick="onProfileClick"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/mayak"
         app:riv_corner_radius="50dp" />
 
     <LinearLayout

@@ -6,7 +6,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="basicPerson">Владимир Путин</string>
+    <string name="basicPerson">User name</string>
     <string name="navigation_drawer_open">Открыть панель управления</string>
     <string name="navigation_drawer_close">Закрыть панель управления</string>
 

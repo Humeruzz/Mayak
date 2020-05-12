@@ -1,21 +1,29 @@
 package com.mymess.mayak.pojo;
 
-import java.sql.Timestamp;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Calendar;
 
 public class UserInfo {
-    private int userId;
+    @SerializedName("user_id")
+    private Integer userId;
+    @SerializedName("first_name")
     private String firstName;
+    @SerializedName("last_name")
     private String lastName;
+    @SerializedName("nickname")
     private String nickName;
-    private Calendar dateOfBirth;
+    @SerializedName("date_of_birth")
+    private long dateOfBirth;
+    @SerializedName("phone_number")
     private String phoneNumber;
-    private Timestamp creationTimestamp;
+    @SerializedName("creation_timestamp")
+    private long creationTimestamp;
 
     public UserInfo() {
     }
 
-    public UserInfo(int userId, String firstName, String lastName, String nickName, Calendar dateOfBirth, String phoneNumber, Timestamp creationTimestamp) {
+    public UserInfo(int userId, String firstName, String lastName, String nickName, long dateOfBirth, String phoneNumber, long creationTimestamp) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,11 +33,11 @@ public class UserInfo {
         this.creationTimestamp = creationTimestamp;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -57,11 +65,11 @@ public class UserInfo {
         this.nickName = nickName;
     }
 
-    public Calendar getDateOfBirth() {
+    public long getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Calendar dateOfBirth) {
+    public void setDateOfBirth(long dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -73,11 +81,11 @@ public class UserInfo {
         this.phoneNumber = phoneNumber;
     }
 
-    public Timestamp getCreationTimestamp() {
+    public long getCreationTimestamp() {
         return creationTimestamp;
     }
 
-    public void setCreationTimestamp(Timestamp creationTimestamp) {
+    public void setCreationTimestamp(long creationTimestamp) {
         this.creationTimestamp = creationTimestamp;
     }
 
@@ -88,25 +96,27 @@ public class UserInfo {
 
         UserInfo userInfo = (UserInfo) o;
 
-        if (userId != userInfo.userId) return false;
-        if (!firstName.equals(userInfo.firstName)) return false;
-        if (!lastName.equals(userInfo.lastName)) return false;
+        if (dateOfBirth != userInfo.dateOfBirth) return false;
+        if (creationTimestamp != userInfo.creationTimestamp) return false;
+        if (!userId.equals(userInfo.userId)) return false;
+        if (firstName != null ? !firstName.equals(userInfo.firstName) : userInfo.firstName != null)
+            return false;
+        if (lastName != null ? !lastName.equals(userInfo.lastName) : userInfo.lastName != null)
+            return false;
         if (nickName != null ? !nickName.equals(userInfo.nickName) : userInfo.nickName != null)
             return false;
-        if (!dateOfBirth.equals(userInfo.dateOfBirth)) return false;
-        if (!phoneNumber.equals(userInfo.phoneNumber)) return false;
-        return creationTimestamp.equals(userInfo.creationTimestamp);
+        return phoneNumber != null ? phoneNumber.equals(userInfo.phoneNumber) : userInfo.phoneNumber == null;
     }
 
     @Override
     public int hashCode() {
-        int result = userId;
-        result = 31 * result + firstName.hashCode();
-        result = 31 * result + lastName.hashCode();
+        int result = userId.hashCode();
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (nickName != null ? nickName.hashCode() : 0);
-        result = 31 * result + dateOfBirth.hashCode();
-        result = 31 * result + phoneNumber.hashCode();
-        result = 31 * result + creationTimestamp.hashCode();
+        result = 31 * result + (int) (dateOfBirth ^ (dateOfBirth >>> 32));
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        result = 31 * result + (int) (creationTimestamp ^ (creationTimestamp >>> 32));
         return result;
     }
 }

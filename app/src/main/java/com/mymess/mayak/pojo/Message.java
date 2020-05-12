@@ -5,14 +5,22 @@ import com.google.gson.annotations.SerializedName;
 import java.sql.Timestamp;
 
 public class Message {
+    private boolean checked;
     @SerializedName("message_id")
     private int messageId;
     private int from;
     private int to;
-    private Timestamp timestamp;
-    private boolean checked;
+    private long timestamp;
 
-    public Message(int from, int to, Timestamp timestamp) {
+    public Message(boolean checked, int from, int to) {
+        this.checked = checked;
+        this.from = from;
+        this.to = to;
+    }
+
+    public Message(boolean checked, int messageId, int from, int to, long timestamp) {
+        this.checked = checked;
+        this.messageId = messageId;
         this.from = from;
         this.to = to;
         this.timestamp = timestamp;
@@ -50,11 +58,11 @@ public class Message {
         this.to = to;
     }
 
-    public Timestamp getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -68,8 +76,8 @@ public class Message {
         if (messageId != message.messageId) return false;
         if (from != message.from) return false;
         if (to != message.to) return false;
-        if (checked != message.checked) return false;
-        return timestamp.equals(message.timestamp);
+        if (timestamp != message.timestamp) return false;
+        return checked == message.checked;
     }
 
     @Override
@@ -77,7 +85,7 @@ public class Message {
         int result = messageId;
         result = 31 * result + from;
         result = 31 * result + to;
-        result = 31 * result + timestamp.hashCode();
+        result = 31 * result + (int) (timestamp ^ (timestamp >>> 32));
         result = 31 * result + (checked ? 1 : 0);
         return result;
     }

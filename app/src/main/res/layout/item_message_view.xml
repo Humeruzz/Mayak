@@ -11,7 +11,7 @@
         android:id="@+id/user_mess_im"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        tools:src="@mipmap/ic_launcher" />
+        tools:src="@drawable/mayak" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
             style="@style/MessageView.Message"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="User massage" />
+            android:text="Error text" />
 
     </LinearLayout>
 
@@ -40,5 +40,5 @@
         style="@style/TextView.Time"
         android:layout_marginTop="2dp"
         android:layout_marginRight="@dimen/text_small_margin"
-        android:text="15:10" />
+        android:text="-00:00" />
 </LinearLayout>

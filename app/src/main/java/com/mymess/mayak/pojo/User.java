@@ -1,32 +1,44 @@
 package com.mymess.mayak.pojo;
 
+import android.content.Intent;
+
+import com.google.gson.annotations.SerializedName;
+
 public class User {
-    private transient int userId;
+    @SerializedName("user_id")
+    private Integer userId;
     private String email;
     private String password;
 
     public User() {
-        this.userId = 0;
+        this.userId = null;
         this.email = null;
         this.password = null;
     }
 
     public User(String email, String password) {
+        this.userId = null;
         this.email = email;
         this.password = password;
     }
 
-    public User(int userId, String email, String password) {
+    public User(Integer userID) {
+        this.userId = userID;
+        this.email = null;
+        this.password = null;
+    }
+
+    public User(Integer userId, String email, String password) {
         this.userId = userId;
         this.email = email;
         this.password = password;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -64,5 +76,10 @@ public class User {
         result = 31 * result + email.hashCode();
         result = 31 * result + password.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return  userId + "\n" + email + "\n" + password;
     }
 }
